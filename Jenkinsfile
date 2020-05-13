@@ -1,6 +1,15 @@
 pipeline {
     agent any
 
+    tools {
+     go { 'go-1.14' }
+    }
+
+    environment {
+    XDG_CACHE_HOME = '/tmp/.cache'
+    CGO_ENABLED='0'
+    }
+
     stages {
        stage('Checkout'){
            steps{
