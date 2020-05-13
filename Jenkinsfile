@@ -17,16 +17,6 @@ pipeline {
            }
        }
 
-       stage('Test'){
-           steps {
-              sh 'go get -u github.com/golang/lint/golint'
-              sh 'go get -t ./...'
-              sh 'golint -set_exit_status'
-              sh 'go vet .'
-              sh 'go test .'
-           }
-
-       }
 
        stage('Build'){
            steps{
