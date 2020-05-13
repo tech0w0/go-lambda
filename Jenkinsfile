@@ -23,6 +23,7 @@ pipeline {
                 sh 'go get -u github.com/aws/aws-lambda-go/lambda'
                 sh 'GOOS=linux go build -o main main.go'
                 sh "zip deployment.zip main"
+                sh 'sudo yum install zip'
            }
 
        }
