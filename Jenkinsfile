@@ -21,8 +21,8 @@ pipeline {
            steps {
                withAWS(credentials: 'aws-credentials', region: 'eu-west-1') {
                    sh 'echo "hello KB">hello.txt'
-                   s3Upload acl: 'Private', bucket: 'kb-bucket', file: 'hello.txt'
-                   s3Download bucket: 'kb-bucket', file: 'downloadedHello.txt', path: 'hello.txt'
+                   s3Upload acl: 'Private', bucket: 'go-lambda2', file: 'hello.txt'
+                   s3Download bucket: 'go-lambda2', file: 'downloadedHello.txt', path: 'hello.txt'
                    sh 'cat downloadedHello.txt'
                }
            }
