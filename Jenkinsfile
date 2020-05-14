@@ -19,7 +19,7 @@ pipeline {
 
        stage('hello AWS') {
            steps {
-               withAWS(credentials: 'aws-credentials', region: 'eu-west-1') {
+               withAWS(credentials: 'aws-credentials', region: 'eu-central-1') {
                    sh 'echo "hello KB">hello.txt'
                    s3Upload acl: 'Private', bucket: 'go-lambda2', file: 'hello.txt'
                    s3Download bucket: 'go-lambda2', file: 'downloadedHello.txt', path: 'hello.txt'
